@@ -17,7 +17,7 @@ WORKDIR /root
 
 # Let's roll
 RUN	rm /etc/apk/repositories && \
-	echo "http://mirror.yandex.ru/mirrors/alpine/v3.2/main/" > /etc/apk/repositories && \
+	echo "http://mirrors.gigenet.com/alpinelinux/v3.2/main/" > /etc/apk/repositories && \
 	apk update && \
 	apk add --update ${BUILD_DEP} && \
 	wget ${WGET_ARGS} http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
