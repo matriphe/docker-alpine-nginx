@@ -4,12 +4,6 @@ FROM alpine:latest
 # Declare maintainer
 MAINTAINER Muhammad Zamroni <halo@matriphe.com>
 
-# Choose Nginx version
-ENV ROOT_DIR /root
-
-# Set working directory
-WORKDIR ${ROOT_DIR}
-
 # Let's roll
 RUN	apk update && \
 	apk upgrade && \
@@ -30,8 +24,11 @@ COPY etc/common.conf /etc/nginx/common.conf
 COPY etc/conf.d/default.conf /etc/nginx/conf.d/default.conf
 COPY etc/conf.d/ssl.conf /etc/nginx/conf.d/ssl.conf
 
+# Expose volumes
 VOLUME ["/etc/nginx/conf.d", "/usr/share/nginx/html", "/var/log/nginx", "/www"]
 
+# Expose ports
 EXPOSE 80 443
 
+# Entry point
 ENTRYPOINT ["/usr/sbin/nginx"]
