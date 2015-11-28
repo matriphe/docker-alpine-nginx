@@ -11,9 +11,7 @@ ENV ROOT_DIR /root
 WORKDIR ${ROOT_DIR}
 
 # Let's roll
-RUN	rm /etc/apk/repositories && \
-	echo "http://mirrors.gigenet.com/alpinelinux/v3.2/main/" > /etc/apk/repositories && \
-	apk update && \
+RUN	apk update && \
 	apk upgrade && \
 	apk add --update openssl nginx && \
 	mkdir /etc/nginx/certificates && \
