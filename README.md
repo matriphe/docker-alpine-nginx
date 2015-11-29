@@ -8,8 +8,10 @@ Versions and are based on Nginx versions. Tag `dev` is development tag for exper
 
 Here are the supported tags and respective Dockerfile links.
 
- * `latest`, `1.8.0` [(Dockerfile)](https://github.com/matriphe/docker-alpine-nginx/blob/master/Dockerfile)
- * `dev` [(Dockerfile)](https://github.com/matriphe/docker-alpine-nginx/blob/dev/Dockerfile)
+ * `html`, `html-1.8.0` [(Dockerfile)](https://github.com/matriphe/docker-alpine-nginx/blob/master/html/Dockerfile)
+ * `php-fpm`, `php-fpm-1.8.0` [(Dockerfile)](https://github.com/matriphe/docker-alpine-nginx/blob/master/php-fpm/Dockerfile)
+ 
+The `html` tag show that the Nginx is used for non PHP-FPM purpose, such as simple static HTML site. And the `php-fpm` is disigned to be used with PHP-FPM. It is fit with [Alpine-PHP](https://hub.docker.com/r/matriphe/alpine-php/) docker image.
 
 ## Getting The Image
 
