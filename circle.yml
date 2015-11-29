@@ -2,4 +2,4 @@ general:
   build_dir: /
 test:
   override: 
-    - docker exec -ti serene_bose sh -c "nginx -v"
+    - sudo docker exec -ti serene_bose sh -c "nginx -v"
