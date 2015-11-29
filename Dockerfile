@@ -5,7 +5,7 @@ FROM alpine:latest
 MAINTAINER Muhammad Zamroni <halo@matriphe.com>
 
 # Timezone
-ARG timezone=Asia/Jakarta
+ARG timezone="Asia/Jakarta"
 
 # Let's roll
 RUN	apk update && \
