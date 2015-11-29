@@ -17,7 +17,7 @@ RUN	apk update && \
 		-days 365 \
 		-nodes \
 		-subj /CN=localhost && \
-	mkdir /www && 
+	mkdir /www && \
 	rm -rf /var/cache/apk/*
 
 COPY etc/nginx.conf /etc/nginx/nginx.conf
