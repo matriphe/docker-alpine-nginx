@@ -95,13 +95,13 @@ If you run and want to link PHP-FPM container, make sure you created and run PHP
  * `--link` argument allows this container and the `phpfpm` container to talk to each other over IP.
  * `-d` argument runs the container as a daemon.
  
- ### Stopping The Container
- 
- ```Shell
- docker stop nginx
- ```
- ### Start The Container Again
- 
- ```Shell
- docker start nginx
- ```
+### Stopping The Container
+
+```Shell
+docker stop nginx
+```
+### Start The Container Again
+
+```Shell
+docker start nginx
+```
