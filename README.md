@@ -4,7 +4,7 @@ This Nginx docker image is based on [Alpine](https://hub.docker.com/_/alpine/). 
 
 ## Tags
 
-Versions and are based on Nginx versions. Tag `dev` is development tag for experiment.
+Versions and are based on Nginx versions.
 
 Here are the supported tags and respective Dockerfile links.
 
@@ -15,7 +15,7 @@ The `html` tag show that the Nginx is used for non PHP-FPM purpose, such as simp
 
 ## Getting The Image
 
-This image is published in the [Docker Hub]. Simply run this command below to get it to your machine.
+This image is published in the Docker Hub. Simply run this command below to get it to your machine.
 
 ```Shell
 docker pull matriphe/alpine-nginx:php-fpm
