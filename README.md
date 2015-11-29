@@ -13,21 +13,6 @@ Here are the supported tags and respective Dockerfile links.
 
 ## Getting The Image
 
-# Alpine Nginx
-
-This Nginx docker image is based on [Alpine](https://hub.docker.com/_/alpine/). Alpine is based on [Alpine Linux](http://www.alpinelinux.org), lightweight Linux distribution based on [BusyBox](https://hub.docker.com/_/busybox/). The size of the image is very small, less than 10 MB!
-
-## Tags
-
-Versions and are based on Nginx versions. Tag `dev` is development tag for experiment.
-
-Here are the supported tags and respective Dockerfile links:
-
-* `latest`, `1.8.0` [(Dockerfile)](https://github.com/matriphe/docker-alpine-nginx/blob/master/Dockerfile)
-* `dev` [(Dockerfile)](https://github.com/matriphe/docker-alpine-nginx/blob/dev/Dockerfile)
-
-## Getting The Image
-
 This image is published in the [Docker Hub]. Simply run this command below to get it to your machine.
 
 ```Shell
