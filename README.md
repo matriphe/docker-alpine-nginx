@@ -23,10 +23,10 @@ Alternatively you can clone this repository and build the image using the `docke
 
 ## Build
 
-This image use `Asia/Jakarta` timezone by default. You can change the timezone by passing `TIMEZONE` argument on build.
+This image use `Asia/Jakarta` timezone by default. You can change the timezone by change the `TIMEZONE` environment on `Dockerfile` and then build.
 
 ```Shell
-docker --build-arg timezone=Europe/Brussels -t repository/imagename:tag Dockerfile
+docker -t repository/imagename:tag Dockerfile
 ```
 
 ## Configuration
