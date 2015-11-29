@@ -5,14 +5,14 @@ FROM alpine:latest
 MAINTAINER Muhammad Zamroni <halo@matriphe.com>
 
 # Timezone
-ARG TIMEZONE=Asia/Jakarta
+ARG timezone=Asia/Jakarta
 
 # Let's roll
 RUN	apk update && \
 	apk upgrade && \
 	apk add --update openssl nginx tzdata && \
-	cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
-	echo "${TIMEZONE}" > /etc/timezone && \
+	cp /usr/share/zoneinfo/${timezone} /etc/localtime && \
+	echo "${timezone}" > /etc/timezone && \
 	mkdir /etc/nginx/certificates && \
 	openssl req \
 		-x509 \
