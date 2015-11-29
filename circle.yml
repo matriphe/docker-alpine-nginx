@@ -1,5 +1,0 @@
-general:
-  build_dir: /
-test:
-  override: 
-    - sudo docker exec -ti serene_bose sh -c "nginx -v"
