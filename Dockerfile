@@ -16,7 +16,7 @@ RUN	apk update && \
 		-out /etc/nginx/certificates/cert.pem \
 		-days 365 \
 		-nodes \
-		-subj /C=ID/ST=Jakarta/L=Jakarta/O=matriphe/OU=Developer/CN=localhost/emailAddress=halo@matriphe.com && \
+		-subj /CN=localhost && \
 	mkdir /www
 
 COPY etc/nginx.conf /etc/nginx/nginx.conf
