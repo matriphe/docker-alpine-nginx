@@ -4,16 +4,19 @@ FROM alpine:latest
 # Declare maintainer
 MAINTAINER Muhammad Zamroni <halo@matriphe.com>
 
+# Environment
+ENV WWW_PATH /www
+
 # Timezone
-#ARG localtimezone="Asia/Jakarta"
+ARG TIME_ZONE="Asia/Jakarta"
 
 # Let's roll
 RUN	apk update && \
 	apk upgrade && \
 	apk add --update openssl nginx && \
 #	apk add --update tzdata && \
-#	cp /usr/share/zoneinfo/${localtimezone} /etc/localtime && \
-#	echo "${localtimezone}" > /etc/timezone && \
+#	cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime && \
+#	echo "${TIME_ZONE}" > /etc/timezone && \
 	mkdir /etc/nginx/certificates && \
 	openssl req \
 		-x509 \
@@ -32,8 +35,10 @@ COPY etc/common.conf /etc/nginx/common.conf
 COPY etc/conf.d/default.conf /etc/nginx/conf.d/default.conf
 COPY etc/conf.d/ssl.conf /etc/nginx/conf.d/ssl.conf
 
+WORKDIR ${WWW_PATH}
+
 # Expose volumes
-VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/www"]
+VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", ${WWW_PATH}]
 
 # Expose ports
 EXPOSE 80 443
