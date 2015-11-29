@@ -28,7 +28,7 @@ RUN	apk update && \
 	rm -rf /var/cache/apk/*
 
 COPY etc/nginx.conf /etc/nginx/nginx.conf
-COPY etc/common.php.conf /etc/nginx/common.conf
+COPY etc/common.conf /etc/nginx/common.conf
 COPY etc/conf.d/default.conf /etc/nginx/conf.d/default.conf
 COPY etc/conf.d/ssl.conf /etc/nginx/conf.d/ssl.conf
 
