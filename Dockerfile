@@ -4,10 +4,15 @@ FROM alpine:latest
 # Declare maintainer
 MAINTAINER Muhammad Zamroni <halo@matriphe.com>
 
+# Timezone
+ARG TIMEZONE=Asia/Jakarta
+
 # Let's roll
 RUN	apk update && \
 	apk upgrade && \
-	apk add --update openssl nginx && \
+	apk add --update openssl nginx tzdata && \
+	cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
+	echo "${TIMEZONE}" > /etc/timezone && \
 	mkdir /etc/nginx/certificates && \
 	openssl req \
 		-x509 \
@@ -18,6 +23,7 @@ RUN	apk update && \
 		-nodes \
 		-subj /CN=localhost && \
 	mkdir /www && \
+	apk del tzdata && \
 	rm -rf /var/cache/apk/*
 
 COPY etc/nginx.conf /etc/nginx/nginx.conf
