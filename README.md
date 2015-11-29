@@ -21,6 +21,14 @@ docker pull matriphe/alpine-nginx
 
 Alternatively you can clone this repository and build the image using the `docker build` command.
 
+## Build
+
+This image use `Asia/Jakarta` timezone by default. You can change the timezone by passing `TIMEZONE` argument on build.
+
+```Shell
+docker --build-arg timezone=Europe/Brussels -t repository/imagename:tag Dockerfile
+```
+
 ## Configuration
 
 The site data, config, and log data is configured to be located in a Docker volume so that it is persistent and can be shared by other containers or a backup container).
