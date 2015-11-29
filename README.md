@@ -18,7 +18,13 @@ The `html` tag show that the Nginx is used for non PHP-FPM purpose, such as simp
 This image is published in the [Docker Hub]. Simply run this command below to get it to your machine.
 
 ```Shell
-docker pull matriphe/alpine-nginx
+docker pull matriphe/alpine-nginx:php-fpm
+```
+
+or 
+
+```Shell
+docker pull matriphe/alpine-nginx:html
 ```
 
 Alternatively you can clone this repository and build the image using the `docker build` command.
@@ -35,7 +41,7 @@ docker -t repository/imagename:tag Dockerfile
 
 The site data, config, and log data is configured to be located in a Docker volume so that it is persistent and can be shared by other containers or a backup container).
 
-There are three volumes defined in this image:"/etc/nginx/conf.d", "/usr/share/nginx/html", "/var/log/nginx", "/www"
+There are three volumes defined in this image, `/etc/nginx/conf.d`, `/var/log/nginx`, and `/www`.
 
  * `/etc/nginx/conf.d` to store the virtual server configurations
  * `/var/log/nginx` to store the logs, by default, only errors that are logged
@@ -45,9 +51,9 @@ You can store the sites data to this directory structure:
 ```
 /www
 ├─── website1_files
-|    └  ...
+|    └ ...
 └─── website2_files
-     └  ...
+     └ ...
 /etc
 └─── nginx
 	 └─── conf.d
@@ -61,7 +67,7 @@ The `/etc/nginx/conf.d` operates in the same fashion as the regular `/etc/nginx/
 
 You can modify the `nginx.conf` by editing `etc/nginx.conf` in this repository and rebuild the image. Make sure you include `daemon off;` in the configuration.
 
-If you link this container with PHP-FPM container, for example, makes sure to uncomment `php-fpm` section in `etc/common.conf` that will be included on every site config. Change the `phpfpm` with the name of yout PHP-FPM container name.
+If you link this container using PHP-FPM container, for example, makes sure to build or use `php-fpm` tag, It will include `etc/common.conf` that will be called on every site config. You can left the config unchanged, or you can change the `phpfpm` with the name of yout PHP-FPM container name.
 
 ```Nginx
 location ~ \.php$ {
@@ -93,7 +99,7 @@ server {
 ### Create and Run The Container
 
 ```Shell
-docker run --privileged=true -p 80:80 -p 443:443 --name nginx -v /home/user/nginx/conf:/etc/nginx/conf.d -v /home/user/nginx/log:/var/log/nginx:rw --volumes-from phpfpm --link phpfpm:fpm -d matriphe/alpine-nginx
+docker run -p 80:80 -p 443:443 --name nginx -v /home/user/nginx/conf:/etc/nginx/conf.d -v /home/user/nginx/log:/var/log/nginx:rw --volumes-from phpfpm --link phpfpm:fpm -d matriphe/alpine-nginx:php-fpm
 ```
 
 If you run and want to link PHP-FPM container, make sure you created and run PHP-FPM the container before running this Nginx container. Make sure the `/www` volume in PHP-FPM container is mapped.
