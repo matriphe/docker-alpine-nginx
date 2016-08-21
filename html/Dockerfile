@@ -1,5 +1,5 @@
 # Use Alpine Linux
-FROM alpine:latest
+FROM container4armhf/armhf-alpine:latest-stable
 
 # Declare maintainer
 MAINTAINER Muhammad Zamroni <halo@matriphe.com>
