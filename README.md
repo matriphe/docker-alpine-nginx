@@ -1,4 +1,4 @@
-# Alpine Nginx
+# Alpine  Nginx
 
 This Nginx docker image is based on [Alpine](https://hub.docker.com/_/alpine/). Alpine is based on [Alpine Linux](http://www.alpinelinux.org), lightweight Linux distribution based on [BusyBox](https://hub.docker.com/_/busybox/). The size of the image is very small, less than 10 MB!
 
